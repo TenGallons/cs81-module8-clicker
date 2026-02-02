@@ -30,17 +30,25 @@
 
     // Event-driven code: this runs only when the user clicks the button
     button.addEventListener("click", () => {
-      clicks++;
+  clicks++;
+  countEl.textContent = clicks;
 
-      // Update the counter displayed in the DOM
-      countEl.textContent = clicks;
-
-      // Simple default message for non-milestone clicks
-      messageEl.textContent = "Treat delivered.";
-
-      // Small visual feedback every click
-      button.textContent = "🐟";
-    });
+  if (clicks === 10) {
+    messageEl.textContent = "You’re just getting started.";
+    page.style.backgroundColor = "#f0fff6";
+  } else if (clicks === 25) {
+    messageEl.textContent = "Wow, that’s a lot of treats.";
+    page.style.backgroundColor = "#fff8e6";
+  } else if (clicks === 50) {
+    messageEl.textContent = "Are you still clicking?";
+    page.style.backgroundColor = "#ffeef2";
+  } else if (clicks === 100) {
+    messageEl.textContent = "You win. Maybe take a break.";
+    page.style.backgroundColor = "#eaf2ff";
+  } else {
+    messageEl.textContent = "Treat delivered.";
+  }
+});
   </script>
 
 </body>
