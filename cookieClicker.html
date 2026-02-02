@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Cat Treat Clicker</title>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding-top: 70px; background-color: #f6f6ff;">
+<body id="page" style="font-family: sans-serif; text-align: center; padding-top: 70px; background-color: #f6f6ff;">
 
   <h1>Cat Treat Clicker</h1>
 
@@ -17,6 +17,31 @@
   <div id="message" style="margin-top: 18px; font-size: 1.2rem;">
     Click the fish to give treats.
   </div>
+
+  <script>
+    // Grab DOM elements so we can update the page when the user clicks
+    const page = document.getElementById("page");
+    const button = document.getElementById("clickBtn");
+    const countEl = document.getElementById("count");
+    const messageEl = document.getElementById("message");
+
+    // Track clicks in a normal JS variable (state)
+    let clicks = 0;
+
+    // Event-driven code: this runs only when the user clicks the button
+    button.addEventListener("click", () => {
+      clicks++;
+
+      // Update the counter displayed in the DOM
+      countEl.textContent = clicks;
+
+      // Simple default message for non-milestone clicks
+      messageEl.textContent = "Treat delivered.";
+
+      // Small visual feedback every click
+      button.textContent = "🐟";
+    });
+  </script>
 
 </body>
 </html>
